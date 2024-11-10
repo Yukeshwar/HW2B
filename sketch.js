@@ -1,17 +1,23 @@
-//for the second one i used Yayoi Kusama (Dots Obsession)
 function setup() {
-  createCanvas(4000, 4000); 
-  background(255, 204, 0); 
-  fill(0); 
-  ellipse(50, 50, 60, 60);  
-  ellipse(150, 100, 80, 80);
-  ellipse(250, 50, 70, 70);
-  ellipse(350, 150, 100, 100);
-  ellipse(100, 250, 90, 90);
-  ellipse(200, 300, 80, 80);
-  ellipse(300, 250, 110, 110);
-  ellipse(50, 350, 70, 70);
-  ellipse(350, 350, 60, 60);
+  createCanvas(windowWidth, windowHeight);
+  background(50);
+  
+  let colors = [color(255, 204, 0), color(255, 0, 0), color(0, 255, 0), color(0, 0, 255)];
+  
+  for (let i = 0; i < 50; i++) {
+    fill(colors[i % 4]);
+    noStroke();
+    
+    let x = random(width);
+    let y = random(height);
+    let size = random(40, 150);
+    
+    if (i % 2 == 0) {
+      ellipse(x, y, size, size);
+    } else {
+      rect(x, y, size, size);
+    }
+  }
 }
 
 function draw() {
